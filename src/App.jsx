@@ -1,11 +1,14 @@
-import './App.css'
+import "./App.css";
+import Navigation from "./components/Navigation";
+import { Outlet } from "react-router-dom";
 
 function App() {
   return (
     <>
-      <div>Siema</div>
+    <Navigation/>
+      {/* <Outlet /> */}
     </>
-  )
+  );
 }
 
-export default App
+export default App;
