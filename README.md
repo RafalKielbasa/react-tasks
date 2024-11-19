@@ -16,7 +16,7 @@ Stwórz prostą aplikację wielostronicową z trzema stronami: **Home**, **About
   - W głównym pliku aplikacji (np. `App.js`) skonfiguruj `BrowserRouter`, `Routes` i `Route`.
 - **Przykładowy Kod:**
 - **Dodatkowe Elementy:**
-  - Stylizacja nawigacji za pomocą CSS lub biblioteki UI (np. Material-UI).
+  - Stylizacja nawigacji za pomocą CSS lub biblioteki Tailwind CSS
   - Dodanie aktywnego stylu dla aktualnej strony.
 
 ### **2. Dynamiczne Trasy**
