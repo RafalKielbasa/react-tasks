@@ -1,38 +1,42 @@
-## **Routing (React Router)**
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
 
-### **1. Wielostronicowa Aplikacja**
+.logo {
+  height: 6em;
+  padding: 1.5em;
+  will-change: filter;
+  transition: filter 300ms;
+}
+.logo:hover {
+  filter: drop-shadow(0 0 2em #646cffaa);
+}
+.logo.react:hover {
+  filter: drop-shadow(0 0 2em #61dafbaa);
+}
 
-**Opis Zadania:**
-Stwórz prostą aplikację wielostronicową z trzema stronami: **Home**, **About**, oraz **Contact**. Użytkownik powinien móc nawigować między tymi stronami za pomocą menu nawigacyjnego.
+@keyframes logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
 
-**Elementy Zadania:**
+@media (prefers-reduced-motion: no-preference) {
+  a:nth-of-type(2) .logo {
+    animation: logo-spin infinite 20s linear;
+  }
+}
 
-- **Instalacja React Router:**
-    - Użyj `npm` lub do zainstalowania `react-router-dom`.
-- **Struktura Aplikacji:**
-    - Stwórz komponenty dla każdej strony: `Home`, `About`, `Contact`.
-    - Utwórz komponent `Navbar` z linkami do każdej z tych stron.
-- **Konfiguracja Routera:**
-    - W głównym pliku aplikacji (np. `App.js`) skonfiguruj `BrowserRouter`, `Routes` i `Route`.
-- **Przykładowy Kod:**
-- **Dodatkowe Elementy:**
-    - Stylizacja nawigacji za pomocą CSS lub biblioteki UI (np. Material-UI).
-    - Dodanie aktywnego stylu dla aktualnej strony.
+.card {
+  padding: 2em;
+}
 
-### **2. Dynamiczne Trasy**
-
-**Opis Zadania:**
-Rozbuduj aplikację o dynamiczne trasy, które przyjmują parametry URL. Na przykład, stwórz stronę użytkownika, gdzie każdemu użytkownikowi przypisany jest unikalny `ID`, a strona wyświetla informacje na jego temat.
-
-**Elementy Zadania:**
-
-- **Rozszerzenie Routera:**
-    - Dodaj nową trasę z dynamicznym parametrem, np. `/users/:id`.
-- **Komponent Strony Użytkownika:**
-    - Stwórz komponent `UserProfile`, który odczytuje `id` z parametrów URL i wyświetla odpowiednie dane.
-- **Przykładowy Kod:**
-- **Nawigacja do Dynamicznych Tras:**
-    - Dodaj linki w `Home` lub innym komponencie, które prowadzą do stron użytkowników, np. `/users/1`, `/users/2`.
-- **Obsługa Błędów:**
-    - Dodaj logikę do obsługi przypadków, gdy użytkownik o danym `ID` nie istnieje.
-    - Możesz przekierować do strony błędu lub wyświetlić komunikat.
+.read-the-docs {
+  color: #888;
+}
