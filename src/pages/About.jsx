@@ -11,7 +11,7 @@ const About = () => {
 						<Link
 							className='p-4'
 							key={id}
-							to={`/about/${id}`}
+							to={`${id}`}
 						>
 							{imie}
 						</Link>
