@@ -1,8 +1,22 @@
+import { useState } from "react";
 import { Link, Outlet } from "react-router-dom";
 import useFetch from "../hooks/useFetch";
 
 const About = () => {
-  const { data } = useFetch({ url: "http://localhost:3001/usersList" });
+  const [loading, setLoading] = useState(false);
+  const { data, error } = useFetch({
+    url: "http://localhost:3001/usersList",
+    setLoading,
+  });
+  console.log("LOADING", loading);
+  if (loading) {
+    return <div>Trwa ładowanie danych...</div>;
+  }
+
+  if (error) {
+    return <p>{error}</p>;
+  }
+
   return (
     <div className="flex flex-col items-center">
       <div>About</div>
