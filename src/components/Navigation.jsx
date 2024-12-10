@@ -1,17 +1,6 @@
-import { NavLink, Outlet } from "react-router-dom";
-import clsx from "clsx";
-const StyledNavLink = ({ name, adress }) => {
-  return (
-    <NavLink
-      className={({ isActive }) =>
-        clsx("p-2 rounded-md border-none", { "bg-black text-white": isActive })
-      }
-      to={adress}
-    >
-      {name}
-    </NavLink>
-  );
-};
+import { Outlet } from "react-router-dom";
+import StyledNavLink from "./StyledNavLink";
+
 const Navigation = () => {
   return (
     <div className="flex flex-col items-center gap-y-10">

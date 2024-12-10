@@ -2,14 +2,19 @@ import { useParams } from "react-router-dom";
 // import users from '../../userMockData';
 import useFetch from "../hooks/useFetch";
 
+
 const UserProfile = () => {
   const { id } = useParams();
-  const { data } = useFetch({ url: `http://localhost:3001/users/${id}` });
-  // const filteredUsers = data.filter((user) => user.id == id);
-  // console.log('user', filteredUsers);
+  const { data, error, loading } = useFetch({ url: `http://localhost:3001/users/${id}` });
 
-  // if (id !== filteredUsers.id) return <p>Id nie istnieje</p>;
-  console.log("ID", id);
+  if (loading) {
+    return <div className="mt-10">Trwa ładowanie danych...</div>;
+  }
+
+  if (error) {
+    return <p>{error}</p>;
+  }
+
   return (
     <div>
       <div className="py-8">

@@ -1,7 +1,15 @@
 import useFetch from "../hooks/useFetch";
 
 const Contact = () => {
-  const { contact } = useFetch({ url: "http://localhost:3001/pages" });
+  const { contact, loading, error } = useFetch({ url: "http://localhost:3001/pages" });
+
+  if (loading) {
+    return <div>Trwa ładowanie danych...</div>;
+  }
+
+  if (error) {
+    return <p>{error}</p>;
+  }
 
   return (
     <div className="text-center">

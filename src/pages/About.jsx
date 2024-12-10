@@ -1,14 +1,12 @@
-import { useState } from "react";
-import { Link, Outlet } from "react-router-dom";
+import { Outlet } from "react-router-dom";
+import StyledNavLink from "../components/StyledNavLink";
 import useFetch from "../hooks/useFetch";
 
 const About = () => {
-  const [loading, setLoading] = useState(false);
-  const { data, error } = useFetch({
+  const { data, error, loading } = useFetch({
     url: "http://localhost:3001/usersList",
-    setLoading,
   });
-  console.log("LOADING", loading);
+
   if (loading) {
     return <div>Trwa ładowanie danych...</div>;
   }
@@ -19,13 +17,15 @@ const About = () => {
 
   return (
     <div className="flex flex-col items-center">
-      <div>About</div>
       <div>
         {data?.map(({ name, id }) => {
           return (
-            <Link className="p-4" key={id} to={`${id}`}>
-              {name}
-            </Link>
+            <StyledNavLink
+              variant="secondary"
+              key={id}
+              name={name}
+              adress={`${id}`}
+            />
           );
         })}
       </div>
