@@ -1,38 +1,80 @@
-## **Routing (React Router)**
+# **Rozszerzone Zadanie - Pobieranie i Wyświetlanie Danych z API**
 
-### **1. Wielostronicowa Aplikacja**
+## **Opis Zadania:**
 
-**Opis Zadania:**
-Stwórz prostą aplikację wielostronicową z trzema stronami: **Home**, **About**, oraz **Contact**. Użytkownik powinien móc nawigować między tymi stronami za pomocą menu nawigacyjnego.
+Twoim zadaniem jest rozbudowanie istniejącej aplikacji React, tak aby dynamicznie pobierała dane z endpointów API (udostępnianych np. przez JSON Server) i wyświetlała je na odpowiednich stronach.
 
-**Elementy Zadania:**
+### **Cele:**
 
-- **Instalacja React Router:**
-  - Użyj `npm` lub do zainstalowania `react-router-dom`.
-- **Struktura Aplikacji:**
-  - Stwórz komponenty dla każdej strony: `Home`, `About`, `Contact`.
-  - Utwórz komponent `Navbar` z linkami do każdej z tych stron.
-- **Konfiguracja Routera:**
-  - W głównym pliku aplikacji (np. `App.js`) skonfiguruj `BrowserRouter`, `Routes` i `Route`.
-- **Przykładowy Kod:**
-- **Dodatkowe Elementy:**
-  - Stylizacja nawigacji za pomocą CSS lub biblioteki Tailwind CSS
-  - Dodanie aktywnego stylu dla aktualnej strony.
+1. **Pobieranie i Wyświetlanie Informacji ze Stron:**
 
-### **2. Dynamiczne Trasy**
+   - Pobrać informacje z endpointów `/pages/home` oraz `/pages/contact`.
+   - Wyświetlić pobrane informacje na stronach **Home** i **Contact**.
 
-**Opis Zadania:**
-Rozbuduj aplikację o dynamiczne trasy, które przyjmują parametry URL. Na przykład, stwórz stronę użytkownika, gdzie każdemu użytkownikowi przypisany jest unikalny `ID`, a strona wyświetla informacje na jego temat.
+2. **Pobieranie Danych Użytkowników i Wyświetlanie ich w Nawigacji:**
+   - Pobrać dane z endpointu `/users`.
+   - Wyświetlić listę użytkowników w nawigacji.
+   - Po kliknięciu na użytkownika w nawigacji, przejść do jego indywidualnej strony profilu i wyświetlić szczegółowe informacje.
 
-**Elementy Zadania:**
+---
 
-- **Rozszerzenie Routera:**
-  - Dodaj nową trasę z dynamicznym parametrem, np. `/users/:id`.
-- **Komponent Strony Użytkownika:**
-  - Stwórz komponent `UserProfile`, który odczytuje `id` z parametrów URL i wyświetla odpowiednie dane.
-- **Przykładowy Kod:**
-- **Nawigacja do Dynamicznych Tras:**
-  - Dodaj linki w `Home` lub innym komponencie, które prowadzą do stron użytkowników, np. `/users/1`, `/users/2`.
-- **Obsługa Błędów:**
-  - Dodaj logikę do obsługi przypadków, gdy użytkownik o danym `ID` nie istnieje.
-  - Możesz przekierować do strony błędu lub wyświetlić komunikat.
+## **Szczegółowe Wytyczne:**
+
+### **1. Pobieranie i Wyświetlanie Informacji ze Stron**
+
+#### **1.1. Pobieranie Danych w Komponentach:**
+
+##### **Strona Home (`Home.js`):**
+
+- Zaimportuj `useState` i `useEffect` z React.
+- Użyj `fetch`, aby pobrać dane z endpointu `http://localhost:5000/pages/home`.
+- Przechowaj pobrane dane w stanie komponentu.
+- Wyświetl tytuł i treść strony.
+
+##### **Strona Contact (`Contact.js`):**
+
+- Postępuj analogicznie jak w przypadku strony `Home`, ale pobierz dane z endpointu `http://localhost:5000/pages/contact`.
+- Wyświetl tytuł, treść oraz dane kontaktowe (telefon, e-mail).
+
+### **2. Pobieranie Danych Użytkowników i Wyświetlanie ich w Nawigacji**
+
+#### **2.1. Pobieranie i Wyświetlanie Użytkowników w Nawigacji (`Navbar.js`):**
+
+- Zaimportuj `useState`, `useEffect` i `Link` z React Router.
+- Użyj `fetch`, aby pobrać dane z endpointu `http://localhost:5000/users`.
+- Przechowaj listę użytkowników w stanie komponentu.
+- Wyświetl listę użytkowników w nawigacji.
+
+#### **2.4. Wyświetlanie Szczegółów Użytkownika (`UserProfile.js`):**
+
+- Wykorzystaj `useParams` do pobrania `id` użytkownika z URL.
+- Użyj `fetch`, aby pobrać dane z endpointu `http://localhost:5000/users/{id}`.
+- Wyświetl szczegółowe informacje o użytkowniku.
+
+### **3. Obsługa Błędów i Ładowania**
+
+- **Stan Ładowania:** W komponentach, gdzie pobierasz dane, dodaj stan ładowania (`loading`), aby poinformować użytkownika, że dane są pobierane.
+- **Obsługa Błędów:** Dodaj obsługę błędów, aby wyświetlić odpowiedni komunikat, jeśli dane nie zostaną pobrane lub wystąpi błąd.
+
+### **4. Stylizacja**
+
+- Upewnij się, że interfejs jest czytelny i przyjazny dla użytkownika.
+- Zastosuj stylizację dla aktywnych linków w nawigacji.
+- Rozważ użycie biblioteki CSS, takiej jak **Tailwind CSS** lub **Bootstrap**, aby przyspieszyć proces stylizacji.
+
+## **Rozszerzenia (Opcjonalne):**
+
+- **Formularz Kontaktowy:**
+
+  - Dodaj formularz na stronie **Contact**, który pozwoli użytkownikom wysyłać wiadomości.
+  - Zaimplementuj walidację danych formularza.
+  - Przechowuj wysłane wiadomości w JSON Server (dodając do `db.json` sekcję `messages`).
+
+- **Paginacja i Wyszukiwanie Użytkowników:**
+
+  - Jeśli lista użytkowników jest długa, zaimplementuj paginację.
+  - Dodaj funkcję wyszukiwania użytkowników w nawigacji.
+
+- **Autoryzacja i Logowanie:**
+  - Dodaj mechanizm logowania użytkowników.
+  - Ogranicz dostęp do pewnych stron tylko dla zalogowanych użytkowników.
