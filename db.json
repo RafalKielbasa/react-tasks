@@ -1,0 +1,62 @@
+{
+  "pages": {
+    "home": {
+      "title": "Witamy na naszej stronie głównej!",
+      "content": "To jest strona główna naszej aplikacji. Znajdziesz tu najnowsze informacje i aktualności."
+    },
+    "contact": {
+      "title": "Skontaktuj się z nami",
+      "content": "Jeśli masz pytania, wypełnij formularz kontaktowy lub zadzwoń do nas.",
+      "phone": "+48 123 456 789",
+      "email": "kontakt@example.com"
+    }
+  },
+  "users": [
+    {
+      "id": "1",
+      "name": "Jan Kowalski",
+      "age": 30,
+      "email": "jan.kowalski@example.com",
+      "username": "jankowalski"
+    },
+    {
+      "id": "2",
+      "name": "Anna Nowak",
+      "age": 25,
+      "email": "anna.nowak@example.com",
+      "username": "annanowak"
+    },
+    {
+      "id": "3",
+      "name": "Piotr Wiśniewski",
+      "age": 35,
+      "email": "piotr.wisniewski@example.com",
+      "username": "piotrwisniewski"
+    },
+    {
+      "id": "4",
+      "name": "Katarzyna Wójcik",
+      "age": 28,
+      "email": "katarzyna.wojcik@example.com",
+      "username": "katarzynawojcik"
+    }
+  ],
+  "usersList": [
+    {
+      "id": 1,
+      "name": "Jan Kowalski"
+    },
+    {
+      "id": 2,
+      "name": "Anna Nowak"
+    },
+    {
+      "id": 3,
+      "name": "Piotr Wiśniewski"
+    },
+    {
+      "id": 4,
+      "name": "Katarzyna Wójcik"
+    }
+  ]
+}
