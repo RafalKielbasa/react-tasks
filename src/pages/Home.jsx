@@ -1,10 +1,15 @@
-// import { useEffect, useState } from "react";
 import useFetch from "../hooks/useFetch";
-// import clsx from 'clsx';
 
 const Home = () => {
-  // const [data, setData] = useState([]);
-  const { home } = useFetch({url:"http://localhost:3001/pages"});
+  const { home, loading, error } = useFetch({url:"http://localhost:3001/pages"});
+
+  if (loading) {
+    return <div>Trwa ładowanie danych...</div>;
+  }
+
+  if (error) {
+    return <p>{error}</p>;
+  }
 
   return (
     <div className="text-center">
